@@ -1,0 +1,78 @@
+@media (min-width: 1200px) {
+  .custom-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.avatar-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--bs-primary);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.avatar-wrap img {
+  width: 84%;
+  height: 84%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.btn-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center; /* <-- centra los botones en cada fila */
+}
+
+.btn-grid .btn {
+  min-width: 90px;
+}
+
+.pager {
+  position: relative;
+}
+.pager .line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 18px;
+  width: clamp(200px, 60vw, 640px);
+  height: 2px;
+  background: #e9ecef;
+  z-index: 0;
+  border-radius: 2px;
+}
+.pager .dot {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  transition: transform 0.1s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.pager .dot.active {
+  background: var(--bs-primary);
+  color: #fff;
+  border-color: var(--bs-primary);
+}
+.pager .dot:hover {
+  transform: translateY(-1px);
+}
