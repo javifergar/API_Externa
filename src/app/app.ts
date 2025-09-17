@@ -9,5 +9,5 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
   styleUrl: './app.css',
 })
 export class App {
-  protected title = 'Actividad_6';
+  protected title = 'API_Externa';
 }
