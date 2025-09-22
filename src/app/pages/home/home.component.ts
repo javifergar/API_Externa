@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   private router = inject(Router);
   @Input() myUser!: IUser;
   users: IUser[] = [];
-  loading = false;
-  error = '';
+
   page = 1;
   perPage = 10;
   totalPages = 1;
@@ -24,18 +23,14 @@ export class HomeComponent implements OnInit {
     this.load();
   }
   async load(page = 1) {
-    this.loading = true;
-    this.error = '';
     try {
       const response = await this.usersSvc.getAllUsers(page);
-      //console.log('[Home] response =', response);
+
       this.users = response.results;
       this.page = response.page;
       this.totalPages = response.total_pages;
-      this.loading = false;
     } catch (msg: any) {
       alert(msg.error);
-      this.loading = false;
     }
   }
   async deleteUser(u: IUser): Promise<void> {
@@ -47,7 +42,7 @@ export class HomeComponent implements OnInit {
     if (!ok) return;
 
     try {
-      await this.usersSvc.deleteUser(u._id);
+      await this.usersSvc.deleteUserSvc(u._id);
 
       this.users = this.users.filter((x) => x._id !== u._id);
     } catch (msg: any) {

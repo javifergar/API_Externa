@@ -13,10 +13,7 @@ export class UserViewComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private usersSvc = inject(UsersServicesService);
-  @Input() idUser: string = '';
-  user!: IUser;
-  loading = false;
-  error = '';
+  user: IUser | any = {};
 
   async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -25,7 +22,6 @@ export class UserViewComponent implements OnInit {
     }
     try {
       this.user = await this.usersSvc.getById(id);
-      //console.log('[UserView] user =', this.user);
     } catch (msg: any) {
       alert(msg.error);
     }
