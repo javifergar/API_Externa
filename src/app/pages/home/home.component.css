@@ -34,7 +34,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center; /* <-- centra los botones en cada fila */
+  justify-content: center;
 }
 
 .btn-grid .btn {

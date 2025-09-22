@@ -1,9 +1,3 @@
-@if (loading) {
-<div class="alert alert-info">Cargando...</div>
-} @if (error) {
-<div class="alert alert-danger">{{ error }}</div>
-}
-
 <div class="container">
   <div class="row g-4">
     @for (user of users; track user._id) {
@@ -13,7 +7,7 @@
           class="card-body d-flex flex-column align-items-center text-center"
         >
           <div class="avatar-wrap mb-3">
-            <img [src]="user.image" [alt]="user.username" />
+            <img [src]="user.image" />
           </div>
           <h6 class="fw-semibold mb-1">
             {{ user.first_name }} {{ user.last_name }}

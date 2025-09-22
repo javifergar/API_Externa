@@ -1,3 +1,4 @@
+// src/app/services/users-services.service.ts
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IResponse, IUser } from '../interfaces/iuser.interface';
@@ -25,7 +26,7 @@ export class UsersServicesService {
   updateUser(id: string, user: IUser): Promise<IUser> {
     return lastValueFrom(this.http.put<IUser>(`${this.baseUrl}/${id}`, user));
   }
-  deleteUser(id: string): Promise<unknown> {
+  deleteUserSvc(id: string): Promise<unknown> {
     return lastValueFrom(this.http.delete(`${this.baseUrl}/${id}`));
   }
 }
