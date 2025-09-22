@@ -1,0 +1,105 @@
+<div class="row g-4">
+  <div class="col-md-4 text-center">
+    <div class="avatar-wrap mx-auto mb-3">
+      <img class="img-fluid rounded-circle" [src]="user.image" />
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <h1>{{ title }} usuario</h1>
+    <form
+      [formGroup]="userForm"
+      (ngSubmit)="getDataForm()"
+      class="card shadow-sm p-3"
+    >
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="first_name"
+            placeholder="Ingrese un nombre"
+          />
+          @if (f.first_name.touched && f.first_name.invalid) {
+          <div class="text-danger small">
+            <span>Nombre incorrecto</span>
+          </div>
+          }
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="last_name"
+            placeholder="Ingrese un apellido"
+          />
+          @if(f.last_name.touched && f.last_name.invalid){
+          <div class="text-danger small">
+            <span>Apellido incorrecto</span>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          placeholder="Ingrese un nombre de usuario"
+        />
+        @if(f.username.touched && f.username.invalid){
+        <div class="text-danger small">
+          <span>Usuario incorrecto</span>
+        </div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Ingrese un email"
+        />
+        @if(f.email.touched && f.email.invalid){
+        <div class="text-danger small">
+          <span>Email incorrecto</span>
+        </div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">URL de imagen</label>
+        <input
+          type="url"
+          class="form-control"
+          formControlName="image"
+          placeholder="Ingrese una imagen"
+        />
+        @if(f.image.touched && f.image.invalid){
+        <div class="text-danger small">
+          <span>URL incorrecto</span>
+        </div>
+        }
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" type="submit">
+          {{ title }}</button
+        ><button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="cancelar()"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
